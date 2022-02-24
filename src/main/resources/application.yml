@@ -1,0 +1,44 @@
+ethereum:
+  server:
+    ip: localhost
+    port: 8545
+  contract:
+    address: "0x1e0de843cf81303fde693018bd25e6626db90f50"
+  owner:
+    address: "0xF76c9B7012c0A3870801eaAddB93B6352c8893DB"
+    passwd: "0x8d22a0aa9c43da157ebc24bc7d70c26d198381e042ab93434757752e3f0ee8e5"
+
+spring:
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+      path: /h2-console
+  datasource:
+    platform: h2
+    driver-class-name: org.h2.Driver
+    url: "jdbc:h2:./db/decentralizedShortSale;MODE=MYSQL;DB_CLOSE_DELAY=-1"
+    username: sa
+    password:
+    hikari:
+      minimum-idle: 1
+      maximum-pool-size: 5
+      pool-name: H2_DB
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+server:
+  port: 9000
+logging:
+  level:
+    web: debug
+    root: info
+    org.hibernate.SQL: debug
+#    org.hibernate.type: trace
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /api-docs
